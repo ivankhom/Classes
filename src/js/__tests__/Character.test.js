@@ -8,7 +8,7 @@ import Zombie from '../Zombie';
 
 describe('Character class', () => {
   test('should create character with valid name and type', () => {
-    const character = new Character('Test', 'Bowman');
+    const character = new Bowman('Test');
     expect(character.name).toBe('Test');
     expect(character.type).toBe('Bowman');
     expect(character.health).toBe(100);
@@ -19,19 +19,19 @@ describe('Character class', () => {
 
   test('should throw error if name is too short', () => {
     expect(() => {
-      new Character('T', 'Bowman');
+      new Bowman('T');
     }).toThrow('Имя должно быть строкой от 2 до 10 символов');
   });
 
   test('should throw error if name is too long', () => {
     expect(() => {
-      new Character('VeryLongName', 'Bowman');
+      new Bowman('VeryLongName');
     }).toThrow('Имя должно быть строкой от 2 до 10 символов');
   });
 
   test('should throw error if name is not a string', () => {
     expect(() => {
-      new Character(123, 'Bowman');
+      new Bowman(123);
     }).toThrow('Имя должно быть строкой от 2 до 10 символов');
   });
 
@@ -83,43 +83,5 @@ describe('Character subclasses', () => {
     expect(zombie.type).toBe('Zombie');
     expect(zombie.attack).toBe(40);
     expect(zombie.defence).toBe(10);
-  });
-});
-
-describe('Character constructor with different types', () => {
-  test('should create Bowman with correct attack/defence', () => {
-    const character = new Character('Test', 'Bowman');
-    expect(character.attack).toBe(25);
-    expect(character.defence).toBe(25);
-  });
-
-  test('should create Swordsman with correct attack/defence', () => {
-    const character = new Character('Test', 'Swordsman');
-    expect(character.attack).toBe(40);
-    expect(character.defence).toBe(10);
-  });
-
-  test('should create Magician with correct attack/defence', () => {
-    const character = new Character('Test', 'Magician');
-    expect(character.attack).toBe(10);
-    expect(character.defence).toBe(40);
-  });
-
-  test('should create Daemon with correct attack/defence', () => {
-    const character = new Character('Test', 'Daemon');
-    expect(character.attack).toBe(10);
-    expect(character.defence).toBe(40);
-  });
-
-  test('should create Undead with correct attack/defence', () => {
-    const character = new Character('Test', 'Undead');
-    expect(character.attack).toBe(25);
-    expect(character.defence).toBe(25);
-  });
-
-  test('should create Zombie with correct attack/defence', () => {
-    const character = new Character('Test', 'Zombie');
-    expect(character.attack).toBe(40);
-    expect(character.defence).toBe(10);
   });
 });
