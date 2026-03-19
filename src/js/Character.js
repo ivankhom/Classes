@@ -13,8 +13,8 @@ export default class Character {
     this.type = type;
     this.health = 100;
     this.level = 1;
-    this.attack = undefined;  // Без значений по умолчанию
-    this.defence = undefined; // Без значений по умолчанию
+    this.attack = undefined;
+    this.defence = undefined;
   }
 
   levelUp() {
